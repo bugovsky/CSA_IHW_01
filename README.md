@@ -33,8 +33,27 @@
         .size	output, .-output
         .size	main, .-main
        ```
+     - Следующие объявления:
+       ```
+       .globl	input
+       .globl	getMax
+       .globl	changeArray
+       .globl	output
+       ```
+       `.globl	main` нужно оставить, иначе программу невозможно скомпилировать
+     - Не забываем про макрос **leave**, его нужно заменить во всей программе [arrays.s](https://github.com/bugovsky/CSA_IHW_01/blob/main/Programs/arrays.s) на
+        ```
+        mov rsp, rbp
+        pop rpb
+        ```
+        Но если в прологе функции есть строка формата `sub rsp, x`, где `x` - количество байт, то тогда заменяем **leave** на следующие строки:
+        ```
+        add rsp, x
+        mov rsp, rbp
+        pop rpb
+        ```
 4. [arrays_final_version.s](https://github.com/bugovsky/CSA_IHW_01/blob/main/Programs/arrays_final_version.s) - теперь поработаем с этой программой, она очищена от лишних директив и макросов, в ней присутствуют комментарии, описывающие связь переменных на языке Си и регистров, передачу фактических параметров и перенос возвращаемого результата. Для формальных параметров, описывающие связь между параметрами языка Си и регистрами, комментарии также добавлены.
-5. Тестовые прогоны
+5. Тестовые прогоны проводим для [arrays.c](https://github.com/bugovsky/CSA_IHW_01/blob/main/Programs/arrays.c) и [arrays_final_version.s](https://github.com/bugovsky/CSA_IHW_01/blob/main/Programs/arrays_final_version.s)
     - Программа на языке Си:
     
 
