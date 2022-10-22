@@ -4,7 +4,7 @@
 .LC0:
 	.string	"%d"
 	.text
-	.globl	input
+
 input:
 	push	rbp				# Пролог функции
 	mov	rbp, rsp
@@ -47,10 +47,11 @@ input:
 	je	.L4
 	call	__stack_chk_fail@PLT
 .L4:
-	leave					# Эпилог функции
+	add rsp, 32				# Эпилог функции
+	mov rsp, rbp
+	pop rbp
 	ret
 
-	.globl	getMax
 getMax:
 	push	rbp				# Пролог функции
 	mov	rbp, rsp
@@ -89,7 +90,6 @@ getMax:
 	pop	rbp				# Эпилог функции
 	ret
 
-	.globl	changeArray
 changeArray:
 	push	rbp				# Пролог функции
 	mov	rbp, rsp
@@ -146,7 +146,7 @@ changeArray:
 .LC1:
 	.string	"%d "
 	.text
-	.globl	output
+
 output:
 	push	rbp				# Пролог функции
 	mov	rbp, rsp
@@ -177,8 +177,12 @@ output:
 	mov	edi, 10				# Кладем в edi значение '\n' - переход на новую строку
 	call	putchar@PLT			# Вызываем printf cо значением, находящемся в edi - '\n'
 	nop
-	leave					# Эпилог функции
+	
+	add rsp, 32				# Эпилог функции
+	mov rsp, rbp
+	pop rbp
 	ret
+
 
 	.section	.rodata
 .LC2:
@@ -270,6 +274,7 @@ main:
 	je	.L23
 	call	__stack_chk_fail@PLT
 .L23:
-	leave					# Эпилог функции, заверешние программы с кодом 0
+	add rsp, 32				# Эпилог функции, заверешние программы с кодом 0
+	mov rsp, rbp
+	pop rbp
 	ret
-
