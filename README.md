@@ -55,5 +55,9 @@
 4. [arrays_final_version.s](https://github.com/bugovsky/CSA_IHW_01/blob/main/Programs/arrays_final_version.s) - теперь поработаем с этой программой, она очищена от лишних директив и макросов, в ней присутствуют комментарии, описывающие связь переменных на языке Си и регистров, передачу фактических параметров и перенос возвращаемого результата. Для формальных параметров, описывающие связь между параметрами языка Си и регистрами, комментарии также добавлены.
 5. Тестовые прогоны проводим для [arrays.c](https://github.com/bugovsky/CSA_IHW_01/blob/main/Programs/arrays.c) и [arrays_final_version.s](https://github.com/bugovsky/CSA_IHW_01/blob/main/Programs/arrays_final_version.s)
     - Программа на языке Си:
-    
-
+    ![](https://github.com/bugovsky/CSA_IHW_01/blob/main/Pictures/c_program_tests.png)
+    - Программа на языке ассемблера:
+    ![](https://github.com/bugovsky/CSA_IHW_01/blob/main/Pictures/asm_cleaned_program_tests.png)
+    Как видим, результат тестовых прогонов одинаковы, а также их вывод не отличается от правильного ответа на каждом тесте, заключаем, что программа работает корректно, а модификация ассемблерной программмы произведена верно.
+6. В [arrays.c](https://github.com/bugovsky/CSA_IHW_01/blob/main/Programs/arrays.c) и [arrays_final_version.s](https://github.com/bugovsky/CSA_IHW_01/blob/main/Programs/arrays_final_version.s) используются функции с передачей данных
+через параметры, также в обеих программах присутствуют локальные переменные.
